@@ -68,6 +68,8 @@ Lorem ipsum decolor sit amet.
 
 * Check the comparison below:
 
+#### Open Judge dataset sample
 ![Open Judge dataset sample](img/img2.png)
 
+#### Real-world open source software source codes from Russell et. al (2018)
 ![Real-world open source software source codes from Russell et. al (2018)](img/img3.png)
