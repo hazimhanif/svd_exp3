@@ -51,7 +51,7 @@ This is because of the pretrained weights embeddings.
 
 The results for training and testing:
 
-[](img/img1.png)
+![](img/img1.png)
 
 The results obtained from the replication is the same as reported in the paper.
 This is because of the pretrained weights embeddings.
