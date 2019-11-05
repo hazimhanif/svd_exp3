@@ -4,7 +4,8 @@
 This repo is for the replication and application of ASTNN to represent source code for a software vulnerability detection task.
 
 ## Abstract Syntax Tree Neural Network
-* Developed and implemented by Zhange et. al (2019) [A Novel Neural Source Code Representation based on Abstract Syntax Tree](https://github.com/zhangj111/astnn). 
+* Developed and implemented by Zhang et. al (2019) [A Novel Neural Source Code Representation based on Abstract Syntax Tree](https://2019.icse-conferences.org/details/icse-2019-Technical-Papers/2/A-Novel-Neural-Source-Code-Representation-based-on-Abstract-Syntax-Tree)
+* Their repository is: https://github.com/zhangj111/astnn
 * They presented the work in ICSE 2019.
 * Acquired good results for source code classification and code clone detection.
 * The code clone detection works for all types of clones (Type 1  - 4 )
