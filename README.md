@@ -61,3 +61,13 @@ This is because of the pretrained weights embeddings.
 
 Lorem ipsum decolor sit amet.
 
+## Problems
+
+* The work implements `pycparser` as their parser to create AST from the source code. However, pycparser requires heavu customization to parse **real world source codes** from real open source applications. The implementation uses `pycparser` with Open Judge (OJ) dataset which is a clean code source. There are no external libraries or typedefs used in the OJ dataset. Therefore, parsing OJ dataset is a breeze. 
+* Implementation through other dataset? There are no software vulnerability detection dataset that is clean so that it able to be preprocessed and parsed successfully using `pycparser` easily.
+
+* Check the comparison below:
+
+![Open Judge dataset sample](img/img2.png)
+
+![Real-world open source software source codes from Russell et. al (2018)](img/img3.png)
