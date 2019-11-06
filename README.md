@@ -63,7 +63,7 @@ This is because of the pretrained weights embeddings.
 * This can be achieved by deconstructing the `pipeline.py` file that provides the pre-processing of the source code.
 * However, `pycparser` cannot be used to parse the C/C++ source codes. Therefore, we decided to use `CodeSensor` from Fabian Yamaguchi's work here (https://github.com/fabsx00/codesensor). It's a custom fuzzy parser based on Antlrv3.
 * Since the CodeSensor parser will produce an AST and the output of the `pycparser` is also an AST, there might be a chance to get the former to work. Definitely the structure will be quite different. Will look into it further. 
- 
+* Please read `Exploration_codeclassify.ipynb` for more information on how the source codes is transformed to become the final structure mentioned in the paper.
 
 ## Problems
 
