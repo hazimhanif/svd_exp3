@@ -13,9 +13,16 @@ This repo is for the replication and application of ASTNN to represent source co
 * This is an exploratory application experiment
 
 ## Datasets
+
 Code clone detection (C and Java):
-1. `Open Judge Clone (OJClone)`
-2. `Big Code Bench (BCB)` 
+
+OJ Dataset (OJClone):
+* They have 104 different programming problems.  
+* Program is known to be clone if it trying to solve the same programmingg problem. 
+* Each programming problem has around 500 programs. Too many. So they only select the first 15 programming problems to produce clone pairs.
+* Then randomly selects 50000 programs.
+
+Big Code Bench (BCB)
 
 Source code classification (C only):
 1. `Open Judge`
@@ -27,6 +34,7 @@ Software vulnerability detection:
 
 #### Code Clone Detection
 
+Random seed for data splitting: 666   
 Total testing results for OJ Clone dataset (C):
 
 * Precision: 0.984
