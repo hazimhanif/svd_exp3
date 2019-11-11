@@ -50,7 +50,7 @@ if __name__ == '__main__':
     LABELS = 1
     EPOCHS = 5
     BATCH_SIZE = 32
-    USE_GPU = True
+    USE_GPU = False
 
     model = BatchProgramCC(EMBEDDING_DIM,HIDDEN_DIM,MAX_TOKENS+1,ENCODE_DIM,LABELS,BATCH_SIZE,
                                    USE_GPU, embeddings)
