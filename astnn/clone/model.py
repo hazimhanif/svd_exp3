@@ -3,6 +3,8 @@ import torch.nn.functional as F
 import torch
 from torch.autograd import Variable
 import random
+import sys
+import pandas as pd
 
 
 class BatchTreeEncoder(nn.Module):
@@ -75,6 +77,9 @@ class BatchTreeEncoder(nn.Module):
         self.node_list = []
         self.traverse_mul(x, list(range(self.batch_size)))
         self.node_list = torch.stack(self.node_list)
+        print("The Xs:")
+        print(x)
+        pd.to_pickle(self.node_list,'node_list.pickle')
         return torch.max(self.node_list, 0)[0]
 
 
@@ -149,6 +154,8 @@ class BatchProgramCC(nn.Module):
 
     def forward(self, x1, x2):
         lvec, rvec = self.encode(x1), self.encode(x2)
+        #print(lvec)
+        #print(rvec)
 
         abs_dist = torch.abs(torch.add(lvec, -rvec))
 

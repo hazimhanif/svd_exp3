@@ -20,18 +20,19 @@ def get_batch(dataset, idx, bs):
         labels.append([item['label']])
     return x1, x2, torch.FloatTensor(labels)
 
+def run(rec_lang):
+#if __name__ == '__main__':
+    #import argparse
 
-if __name__ == '__main__':
-    import argparse
-
-    parser = argparse.ArgumentParser(description="Choose a dataset:[c|java]")
-    parser.add_argument('--lang')
-    args = parser.parse_args()
-    if not args.lang:
-        print("No specified dataset")
-        exit(1)
+    #parser = argparse.ArgumentParser(description="Choose a dataset:[c|java]")
+    #parser.add_argument('--lang')
+    #args = parser.parse_args()
+    #if not args.lang:
+    #    print("No specified dataset")
+    #    exit(1)
     root = 'data/'
-    lang = args.lang
+    #lang = args.lang
+    lang = rec_lang
     categories = 1
     if lang == 'java':
         categories = 5
@@ -42,13 +43,14 @@ if __name__ == '__main__':
     word2vec = Word2Vec.load(root+lang+"/train/embedding/node_w2v_128").wv
     MAX_TOKENS = word2vec.syn0.shape[0]
     EMBEDDING_DIM = word2vec.syn0.shape[1]
+    print('EMBDDINGG DIM: ',EMBEDDING_DIM)
     embeddings = np.zeros((MAX_TOKENS + 1, EMBEDDING_DIM), dtype="float32")
     embeddings[:word2vec.syn0.shape[0]] = word2vec.syn0
-
+    
     HIDDEN_DIM = 100
     ENCODE_DIM = 128
     LABELS = 1
-    EPOCHS = 5
+    EPOCHS = 1
     BATCH_SIZE = 32
     USE_GPU = False
 
@@ -98,6 +100,8 @@ if __name__ == '__main__':
                 optimizer.step()
         print("Testing-%d..."%t)
         # testing procedure
+        import sys
+        sys.exit()
         predicts = []
         trues = []
         total_loss = 0.0
