@@ -25,6 +25,7 @@ class BatchTreeEncoder(nn.Module):
         # pretrained  embedding
         if pretrained_weight is not None:
             self.embedding.weight.data.copy_(torch.from_numpy(pretrained_weight))
+            pd.to_pickle(self.embedding,'embed.pickle',)
             # self.embedding.weight.requires_grad = False
 
     def create_tensor(self, tensor):
@@ -56,7 +57,11 @@ class BatchTreeEncoder(nn.Module):
                             children[j].append(temp[j])
             # else:
             #     batch_index[i] = -1
-
+        print('size of node: ', size)
+        print('index: ',index)
+        print('currentNode: ',current_node)
+        print('index copy: ',Variable(self.th.LongTensor(index)))
+        print('embeding: ',self.embedding(Variable(self.th.LongTensor(current_node))))
         batch_current = self.W_c(batch_current.index_copy(0, Variable(self.th.LongTensor(index)),
                                                           self.embedding(Variable(self.th.LongTensor(current_node)))))
 
@@ -68,6 +73,8 @@ class BatchTreeEncoder(nn.Module):
                 batch_current += zeros.index_copy(0, Variable(self.th.LongTensor(children_index[c])), tree)
         # batch_index = [i for i in batch_index if i is not -1]
         b_in = Variable(self.th.LongTensor(batch_index))
+        print('B_in: ',b_in)
+        print('batch_current',batch_current)
         self.node_list.append(self.batch_node.index_copy(0, b_in, batch_current))
         return batch_current
 
