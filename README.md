@@ -144,7 +144,7 @@ This is because of the pretrained weights embeddings.
 </center>
 
 * Task 2 - Source clone classification:
-![](img/img6.png)
+![](img/img6.jpg)
 
 #### Remarks
 * ASTNN structure still **unable** to perform well on real world datasets (VDiscovery) from  Russell et. al (2018).
