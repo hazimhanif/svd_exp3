@@ -28,8 +28,8 @@ Source code classification (C only):
 1. `Open Judge`
 
 Software vulnerability detection:
-1. Will upload later
-
+1. VDiscovery from Russell et. al (2018) https://arxiv.org/abs/1807.04320
+1. Original dataset can be downloaded from here https://osf.io/d45bw/
 ## Replication
 
 #### Code Clone Detection
@@ -128,6 +128,31 @@ This is because of the pretrained weights embeddings.
 |  ASTNN (CodeSensor-Minimal)	|  1091 	|  14145  	| 93641  	|5267| 0.8299  	|  0.0717 	| 0.1716  	| 0.0520| 0.4760|0.0272| 0.1010|
 
 
-#### Remarks
-* ASTNN structure still unable to perform well on real world datasets (VDiscovery) from  Russell et. al (2018).
+#### Parser evaluation
+* To make sure that the modified parser, `CodeSensor-Complete` is appropriately representing the AST, we tested the parser on the `OJ Dataset`.
+* `OJ Dataset` is the originally used dataset reported in the ASTNN paper.
+* Therefore, we are trying to replicate the results of the original experiment using our modified parser.
+* Originally, there are 2 tasks that were evaluated in the ASTNN paper. We replicate the experiments and reported the results.
+* Task 1 - Code clone classification:
+<center>
 
+|Parser|Precision|Recall|F1|
+|---|---|---|---|
+|Pycparser (original)|0.984|0.948|0.966|
+|CodeSensor-Complete|0.963|0.851|0.903|
+
+</center>
+
+* Task 2 - Source clone classification:
+![](img/img6.png)
+
+#### Remarks
+* ASTNN structure still **unable** to perform well on real world datasets (VDiscovery) from  Russell et. al (2018).
+* The modified parser, `CodeSensor-Complete` works really well on the original dataset (OJ Dataset).
+* In **Task 1** for parser evaluation, the precision reported  is lower than the one originally reported by the paper. This is due to difference in structure of the AST produced by both parsers. Our stand with `CodeSensor-Complete` is firm as it able to produce a full AST structure for real world application source codes. `Pycparser` only works well if you have a synthetic dataset because it requires external libraries/headers to successfully parse all the real world source codes.
+* `CodeSensor-Complete` eliminates the requirements of these external headers and libraries to successfully extract the AST from C and C++ source codes. This shows that the modified parser is robust as compared to `Pycparser`.
+* In **Task 2**, surprisingly the results of the replicating the experiment using our modified parser is quite similar. The results are slightly lower than the originally reported in the paper. For example, the `validation accuracy` difference is just **0.003** and the `validation loss` difference is **0.0132**.
+* Therefore, this shows that the modified parser is doing its job in translating source codes into ASTs.
+* At the same time, this indicates that the parser is not a major factor that affect the performance of doing classifications.
+* We tested the modified parsers on 2 datasets, and 3 different tasks. While it works really well for the synthetic dataset (OJ Dataset), it peformed really bad in real world source codes (VDiscovery.
+* As as a conclusion, we can safely verify that the proposed structure ASTNN from the paper is not working well for detecting software vulnerabilities on a real world source codes (VDiscovery). However, it does work well on detecting code clones and code patterns on a synthethic dataset (OJ Dataset).
