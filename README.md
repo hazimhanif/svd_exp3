@@ -107,7 +107,7 @@ This is because of the pretrained weights embeddings.
 	* Pytorch 1.0.0 (CuDNN v10.0)
 	* Training time ~37 hours per epoch (Total ~111 hours for 3 epochs)
 	* Early stopping because Slurm cluster 7-day limit per job and validation loss increasing steadily thus further training is no longer required.
-	* ![](img/img4.png)
+	* ![](img/img4.jpg)
 * The `CodeSensor-Minimal` training session:
 	* RTX 2080 GPU (8GB memory)
 	* CPU i7-8700K (32 GB RAM) system.
