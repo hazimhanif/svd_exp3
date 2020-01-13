@@ -1,4 +1,5 @@
 
+
 # Experiment 3-AST Neural Network (Replication & Application)
 
 This repo is for the replication and application of ASTNN to represent source code for a software vulnerability detection task.
@@ -145,6 +146,11 @@ This is because of the pretrained weights embeddings.
 
 * Task 2 - Source clone classification:
 ![](img/img6.jpg)
+
+|Parser|Epoch|Train_loss|Val_loss|Train_acc|Val_acc|Testing (evaluation)|
+|---|---|---|---|---|---|---|
+|Pycparser (original)|15|0.0180|0.0563|0.996|0.981|0.9821|
+|CodeSensor-Complete|15|0.0237|0.0695|0.995|0.978|0.9781|
 
 #### Remarks
 * ASTNN structure still **unable** to perform well on real world datasets (VDiscovery) from  Russell et. al (2018).
