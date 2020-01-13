@@ -105,7 +105,7 @@ This is because of the pretrained weights embeddings.
 	* GTX Titan XP from Imperial Slurm GPU cluster (12GB memory)
 	* CPU 24-core/48 thread Intel Xeon with 256GB RAM
 	* Pytorch 1.0.0 (CuDNN v10.0)
-	* Training time ~37 hours per epoch (Total ~111 hours for 3 epochs)
+	* Training time ~37 hours per epoch (Total 7 days 17 hours for 5 epochs)
 	* Early stopping because Slurm cluster 7-day limit per job and validation loss increasing steadily thus further training is no longer required.
 	* ![](img/img4.jpg)
 * The `CodeSensor-Minimal` training session:
